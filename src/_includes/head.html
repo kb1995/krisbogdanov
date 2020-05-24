@@ -3,9 +3,9 @@
 {% capture page_title %}{{ page.title | strip_html | strip_newlines }}{% endcapture %}
 <title>
   {% if page.url == "/" %}
-    {{ site.title }}
+    {{ site.metadata.title }}
   {% elsif page.title %}
-    {{ page.title }} 	| {{ site.title }}
+    {{ page.title }} 	| {{ site.metadata.title }}
   {% endif %}
 </title>
 
@@ -13,7 +13,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="description" content="My name is Kristiyan - a self-taught developer who is now working as a Ruby on Rails full-stack developer. I write about development, side projects and travel.">
+
+{% if page.subtitle %}
+<meta name="description" content="{{ page.subtitle }}">
+{% else %}
+<meta name="description" content="{{ site.metadata.description }}">
+{% endif %}
 
 <!-- Twitter META tags -->
 <meta name="twitter:card" content="summary_large_image">
@@ -22,7 +27,7 @@
 {% if page.title %}
   <meta name="twitter:title" content="{{ page.title }}">
 {% else %}
-  <meta name="twitter:title" content="{{ site.title }}">
+  <meta name="twitter:title" content="{{ site.metadata.title }}">
 {% endif %}
 
 {% if page.url %}
@@ -40,13 +45,13 @@
 <!-- Facebook META tags -->
 {% if page.url %}
   <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
-  <meta property="og:type"               content="article" />
+  <meta property="og:type" content="article" />
 {% endif %}
 
 {% if page.title %}
   <meta property="og:title" content="{{ page.title }}" />
 {% else %}
-  <meta property="og:title"  content="{{ site.title }}">
+  <meta property="og:title"  content="{{ site.metadata.title }}">
 {% endif %}
 
 {% if page.subtitle %}
@@ -66,6 +71,11 @@
 <!-- Analytics -->
 {% if site.production %}
   {% include analytics.html %}
+{% endif %}
+
+<!-- Charts -->
+{% if page.category contains "travel" %}
+  <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
 {% endif %}
 
 <!-- Webpack -->

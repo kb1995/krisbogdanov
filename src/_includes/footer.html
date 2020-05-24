@@ -4,9 +4,9 @@
       <a class="hover:underline font-bold" href="/">Kristiyan Bogdanov</a>
     </div>
     <div class="grid grid-cols-3 col-gap-3">
-      <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener noreferrer" class="w-5 h-5">{% insert_svg icons/twitter.svg %}</a>
-      <a href="https://github.com/kb1995" target="_blank" rel="noopener noreferrer" class="w-5 h-5">{% insert_svg icons/github.svg %}</a>
-      <a href="https://www.linkedin.com/in/kris-bogdanov/" target="_blank" rel="noopener noreferrer" class="w-5 h-5">{% insert_svg icons/linkedin.svg %}</a>
+      <a href="https://twitter.com/{{ site.metadata.twitter }}" target="_blank" rel="noopener noreferrer"><div class="hover:text-purple-300 w-5 h-5 transition duration-300">{% insert_svg icons/twitter.svg %}</div></a>
+      <a href="https://github.com/{{ site.metadata.github }}" target="_blank" rel="noopener noreferrer"><div class="hover:text-purple-300 w-5 h-5 transition duration-300">{% insert_svg icons/github.svg %}</div></a>
+      <a href="https://www.linkedin.com/in/kris-bogdanov/" target="_blank" rel="noopener noreferrer"><div class="hover:text-purple-300 w-5 h-5 transition duration-300">{% insert_svg icons/linkedin.svg %}</div></a>
     </div>
   </div>
 </footer>

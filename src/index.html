@@ -17,7 +17,7 @@ layout: page
         data-aos-delay="500"
         data-aos-duration="500"
         href="{{ root_url }}{{ post.url }}"
-        >Read my latest article</a
+        >Read my latest blog post</a
       >
     </div>
       <img class="lg:w-3/5 rounded-lg" src="{{site.baseurl}}/images/hero.jpg" alt="">
@@ -50,7 +50,7 @@ layout: page
           find plenty of photos of my laptop on
           <a
             class="hover:text-purple-600 hover:underline text-purple-500"
-            href="https://www.instagram.com/{{ site.instagram }}"
+            href="https://www.instagram.com/{{ site.metadata.instagram }}"
             target="_blank"
             rel="noopener noreferrer"
             >Instagram</a
@@ -61,22 +61,22 @@ layout: page
         <img class="h-32 mx-auto" src="{{site.baseurl}}/images/landing-books.svg" alt="" srcset="">
         <h2 class="mt-3 text-3xl font-semibold text-center">Write</h2>
         <p class="lg:w-1/2 w-3/5 mx-auto text-lg text-center text-gray-600">
-          I write <a class="hover:text-purple-600 hover:underline text-purple-500" href="/blog">articles</a> about being a
-          travel, productivity and
+          I write articles about
+          <a class="hover:text-purple-600 hover:underline text-purple-500" href="/travel/">travel</a>,
           <a
             class="hover:text-purple-600 hover:underline text-purple-500"
             href="https://www.fullstackheroes.com/"
             target="_blank"
             rel="noopener noreferrer"
             >development</a
-          >.
+          > and <a class="hover:text-purple-600 hover:underline text-purple-500" href="/blog/">everything else</a>.
         </p>
       </div>
     </div>
   </section>
 
   <!-- Recent articles -->
-  <section class="container">
+  <section>
     <div class="px-3">
       <h2 class="mb-4 text-4xl font-semibold">Recent articles</h2>
     </div>
@@ -106,8 +106,45 @@ layout: page
     </a>
     {% endunless %} {% if counter == 2 %} {% break %} {% endif %} {% endfor %}
     <div class="">
-      <a class="hover:bg-purple-500 focus:outline-none focus:shadow-outline inline-flex px-16 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-purple-600 border border-transparent rounded-md cursor-pointer" href="/blog/"
+      <a class="hover:bg-purple-500 focus:outline-none focus:shadow-outline lg:w-auto inline-flex justify-center w-full px-16 py-3 mx-auto text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-purple-600 border border-transparent rounded-md cursor-pointer" href="/blog/"
         >All articles</a
+      >
+    </div>
+  </section>
+
+  <!-- Recent travels -->
+  <section>
+    <div class="px-3">
+      <h2 class="mb-4 text-4xl font-semibold">Recent travels</h2>
+    </div>
+    {% assign counter = 0 %} {% for post in site.posts %} {% if
+    post.category contains "travel" %} {% assign counter = counter | plus: 1 %}
+    <a href="{{ post.url }}" class="">
+      <div
+        class="lg:flex-row hover:-translate-y-2 hover:shadow-xl flex flex-col p-3 mb-4 transition duration-300 transform rounded-md"
+      >
+        <div class="lg:w-4/12 rounded-2 h-64 overflow-hidden">
+          <img
+            class="object-cover w-full h-full rounded-lg"
+            src="{{site.baseurl}}/images/{{ post.image }}"
+          />
+        </div>
+        <div class="lg:ml-6 flex-1">
+          <h2 class="text-3xl font-semibold">{{ post.title }}</h2>
+          <p class="w-4/5 text-lg text-gray-500">{{ post.subtitle }}</p>
+          <div
+            class="hover:bg-purple-500 focus:outline-none focus:shadow-outline inline-flex px-8 py-1.5 mt-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-purple-600 border border-transparent rounded-md cursor-pointer"
+            href=""
+          >
+            Read more
+          </div>
+        </div>
+      </div>
+    </a>
+    {% endif %} {% if counter == 2 %} {% break %} {% endif %} {% endfor %}
+    <div class="">
+      <a class="hover:bg-purple-500 focus:outline-none focus:shadow-outline lg:w-auto inline-flex justify-center w-full px-16 py-3 mx-auto text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-purple-600 border border-transparent rounded-md cursor-pointer" href="/travel/"
+        >All locations</a
       >
     </div>
   </section>

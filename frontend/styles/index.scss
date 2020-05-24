@@ -36,6 +36,9 @@ mark{
 }
 
 .blog-content-wrapper{
+  ul{
+    @apply list-disc pl-6;
+  }
   img{
     width: 90vw;
     max-width: 550px;
@@ -43,9 +46,10 @@ mark{
     display: block;
   }
   h2{
+    text-align: center;
     font-size: 46px;
     line-height: 1;
-
+    font-weight: 600;
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
@@ -61,8 +65,26 @@ mark{
     line-height: 36px;
   }
 
+  .btn{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
   a{
-    font-weight: 600;
+    @apply text-purple-500 font-semibold;
+    &:hover{
+      @apply text-purple-600 underline;
+    }
+  }
+
+  @media (max-width: 640px) {
+    h2{
+      font-size: 36px;
+    }
+    p, li {
+      font-size: 18px;
+      margin: 1rem 0;
+    }
   }
 }
 
