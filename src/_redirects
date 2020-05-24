@@ -1,0 +1,16 @@
+# Redirect domain aliases to primary domain
+# https://kris.ventures/* https://krisbogdanov.com/:splat 301!
+# https://www.kris.ventures/* https://krisbogdanov.com/:splat 301!
+
+# Optional: Redirect default Netlify subdomain to primary domain
+https://kris-portfolio.netlify.com/* https://krisbogdanov.com/:splat 301!
+
+# old articles before I introduced /blog
+
+/prepare-for-internship-interview/ /blog/prepare-for-internship-interview/
+/from-learner-to-developer/ /blog/from-learner-to-developer/
+/personal-projects-before-first-internship/ /blog/personal-projects-before-first-internship/
+/2019-goals/ /blog/2019-goals/
+/where-did-my-time-go/ /blog/where-did-my-time-go/
+/travel/london/ /travel/london-uk/
+/travel/canggu/ /travel/canggu-bali/
