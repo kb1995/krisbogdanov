@@ -1,4 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
+const plugin = require("tailwindcss/plugin");
 
 module.exports = {
   purge: {
@@ -75,5 +76,21 @@ module.exports = {
       "75per": "75%",
     },
   },
-  plugins: [require("@tailwindcss/ui")],
+  plugins: [
+    require("@tailwindcss/ui"),
+    plugin(function ({ addVariant }) {
+      addVariant("important", ({ container }) => {
+        container.walkRules((rule) => {
+          rule.selector = `.\\!${rule.selector.slice(1)}`;
+          rule.walkDecls((decl) => {
+            decl.important = true;
+          });
+        });
+      });
+    }),
+  ],
+  variants: {
+    textColor: ["responsive", "hover", "focus", "important"],
+    textDecoration: ["responsive", "hover", "focus", "important"],
+  },
 };
