@@ -5,31 +5,35 @@ permalink: /travel/
 order: 1
 ---
 
-<h2 class="text-center">Countries that I have visited</h2>
-<div class="d-flex justify-content-center">
-  <div id="world-map"></div>
-</div>
 
-<div class="container grid grid-cols-2 gap-12">
-  {% for post in site.posts %} {% if post.category contains "travel" %}
-    <a href="{{ post.url }}">
-      <div
-        class="flex flex-col justify-center w-full h-48 p-6 text-center text-white rounded-lg shadow-lg"
-        style="background: linear-gradient( rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url({{site.baseurl}}/images/{{ post.image }});
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;"
-      >
-        <h2 class="text-3xl">{{ post.title }}</h2>
-        <h5 class="hidden text-gray-300 lg:block">{{ post.subtitle }}</h5>
-        <p class="text-gray-300">{{ post.date | date_to_long_string }}</p>
-      </div>
-    </a>
-  {% endif %} {% endfor %}
+<div class="container">
+  <h1 class="lg:text-5xl mb-12 text-4xl font-bold text-center">Countries that I've been to since I started working remotely</h1>
+  <div class="flex justify-center">
+    <div id="world-map"></div>
+  </div>
+  <div class="lg:grid-cols-2 grid gap-12">
+    {% for post in site.posts %} {% if post.category contains "travel" %}
+      <a href="{{ post.url }}">
+        <div
+          class="h-84 flex flex-col justify-center w-full p-6 text-center text-white rounded-lg shadow-lg"
+          style="background: linear-gradient( rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url({{site.baseurl}}/images/{{ post.image }});
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center;"
+        >
+          <h2 class="text-3xl">{{ post.title }}</h2>
+          <h5 class="lg:block hidden text-gray-300">{{ post.subtitle }}</h5>
+          <p class="text-gray-300">{{ post.date | date_to_long_string }}</p>
+        </div>
+      </a>
+    {% endif %} {% endfor %}
+  </div>
+
 </div>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+<script src="node_modules/datamaps/dist/datamaps.world.min.js"></script>
 
 <script>
     // highlightFillColor (highlight color)

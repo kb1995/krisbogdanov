@@ -88,11 +88,18 @@ mark{
       background: white;
     }
   }
-  .copy{
-    font-size: 20px;
+}
+
+.photo-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 10px;
+  margin: 0 30px;
+
+  img{
     width: 100%;
-    max-width: 550px;
-    margin: 0 auto;
-    margin-bottom: 1rem;
+    height: 400px;
+    object-fit: cover;
+    margin: 0;
   }
 }

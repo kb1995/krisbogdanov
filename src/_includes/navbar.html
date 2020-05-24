@@ -1,31 +1,84 @@
-<nav class="container p-4">
-  <div class="flex justify-between w-full">
-    <a href="/" class="">
-      <h4 class="align-middle d-inline font-weight-bold">Kris Bogdanov</h4>
-    </a>
+<div x-data="{ isOpen: false }" class="relative bg-white">
+  <div class="max-w-7xl sm:px-6 px-4 mx-auto">
+    <div class="md:justify-start md:space-x-10 flex items-center justify-between py-6 border-b-2 border-gray-100">
+      <div class="lg:w-0 lg:flex-1">
+        <a href="/" class="lg:text-2xl text-xl font-semibold">
+          Kris Bogdanov
+        </a>
+      </div>
+      <div class="md:hidden -my-2 -mr-2">
+        <button @click="isOpen = true" type="button" class="hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md">
+          <svg class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+      <div class="md:flex md:flex-1 lg:w-0 items-center justify-end hidden mt-2 space-x-10">
 
-    <ul class="flex">
-      {% if page.url != "/" %}
-      <li class="mr-3">
-        <a class="" href="/">Home</a>
-      </li>
-      {% endif %} {% assign sorted_pages = site.pages | sort:"order" %} {% for
-      node in sorted_pages | sort:"order" %} {% if node.title %} {% if page.url
-      contains node.url %}
-      <li class="mr-3">
-        <a
-          class=""
-          href="{{ node.url | prepend: site.baseurl }}"
-          >{{ node.title }}</a
-        >
-      </li>
-      {% else %}
-      <li class="mr-3">
-        <a class="" href="{{ node.url | prepend: site.baseurl }}"
-          >{{ node.title }}</a
-        >
-      </li>
-      {% endif %} {% endif %} {% endfor %}
-    </ul>
+                    {% assign sorted_pages = site.pages | sort:"order" %} {% for
+            node in sorted_pages | sort:"order" %} {% if node.title %} 
+
+              <a class="hover:text-purple-600 hover:border-purple-300 focus:outline-none focus:text-purple-600 text-base font-medium leading-6 text-gray-500 transition duration-300 ease-in-out border-b-2 border-transparent" href="{{ node.url | prepend: site.baseurl }}"
+                >{{ node.title }}</a
+              >
+             {% endif %} {% endfor %}
+            </a>
+      </div>
+    </div>
   </div>
-</nav>
+
+  <div 
+  x-show="isOpen"
+  x-transition:enter="duration-200 ease-out"
+  x-transition:enter-start="opacity-0 scale-95"
+  x-transition:enter-end="opacity-100 scale-100"
+  x-transition:leave="duration-100 ease-in"
+  x-transition:leave-start="opacity-100 scale-100"
+  x-transition:leave-end="opacity-0 scale-95"
+  class="md:hidden absolute inset-x-0 top-0 p-2 transition origin-top-right transform">
+    <div class="rounded-lg shadow-lg">
+      <div class="divide-gray-50 bg-white divide-y-2 rounded-lg shadow-xs">
+        <div class="px-5 pt-5 pb-6 space-y-6">
+          <div class="flex items-center justify-between">
+            <div class="lg:text-2xl text-xl font-semibold">
+              <h1>Kris Bogdanov</h1>
+            </div>
+            <div class="-mr-2">
+              <button @click="isOpen = false" type="button" class="hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md">
+                <svg class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="px-5 py-6 space-y-6">
+          <div class="grid grid-cols-1 col-gap-8">
+              <a
+                class="hover:text-gray-700 text-base font-medium leading-6 text-gray-900 transition duration-150 ease-in-out"
+                href="/"
+                >Home</a
+              >
+            {% assign sorted_pages = site.pages | sort:"order" %} {% for
+            node in sorted_pages | sort:"order" %} {% if node.title %} {% if page.url
+            contains node.url %}
+
+              <a
+                class="hover:text-gray-700 text-base font-medium leading-6 text-gray-900 transition duration-150 ease-in-out"
+                href="{{ node.url | prepend: site.baseurl }}"
+                >{{ node.title }}</a
+              >
+
+            {% else %}
+
+              <a class="hover:text-gray-700 text-base font-medium leading-6 text-gray-900 transition duration-150 ease-in-out" href="{{ node.url | prepend: site.baseurl }}"
+                >{{ node.title }}</a
+              >
+            {% endif %} {% endif %} {% endfor %}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

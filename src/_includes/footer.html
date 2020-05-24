@@ -1,11 +1,13 @@
-<footer class="container flex justify-between p-2 border-t border-gray-300">
-  <div>
-    <a class="font-bold hover:underline" href="/">Kristiyan Bogdanov</a>
-  </div>
-  <div>
-    <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener noreferrer">Twitter</a>
-    <a href="https://github.com/kb1995" target="_blank" rel="noopener noreferrer">Github</a>
-    <a href="https://www.linkedin.com/in/kris-bogdanov/" target="_blank" rel="noopener noreferrer">Linkedin</a>
+<footer class="mt-12 text-white bg-purple-900">
+  <div class="max-w-7xl flex items-center justify-between px-4 py-4 mx-auto">
+    <div>
+      <a class="hover:underline font-bold" href="/">Kristiyan Bogdanov</a>
+    </div>
+    <div class="grid grid-cols-3 col-gap-3">
+      <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener noreferrer" class="w-5 h-5">{% insert_svg icons/twitter.svg %}</a>
+      <a href="https://github.com/kb1995" target="_blank" rel="noopener noreferrer" class="w-5 h-5">{% insert_svg icons/github.svg %}</a>
+      <a href="https://www.linkedin.com/in/kris-bogdanov/" target="_blank" rel="noopener noreferrer" class="w-5 h-5">{% insert_svg icons/linkedin.svg %}</a>
+    </div>
   </div>
 </footer>
 

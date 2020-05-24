@@ -1,9 +1,14 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   purge: {
     content: ["./src/**/*.html"],
   },
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['"Proxima-soft"', ...defaultTheme.fontFamily.sans],
+      },
       spacing: {
         "72": "18rem",
         "84": "21rem",

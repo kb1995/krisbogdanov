@@ -5,13 +5,41 @@ permalink: /newsletter/
 order: 3
 ---
 
-<div class="container">
+<div class="lg:mt-32 mb-72 container mt-12 mb-16">
   <div class="text-center">
-    <h1 class="text-4xl font-bold">Invite me to your inbox.</h1>
-    <div class="mx-auto mt-5 w-50">
+    <h1 class="lg:text-5xl text-4xl font-bold">Invite me to your inbox.</h1>
+    <div class="lg:w-1/2 w-4/5 mx-auto mt-5 text-lg">
       <p>Follow the journey of a self-taught developer shipping products while
       travelling. Receive an email when I release a new post.</p>
       <p>No sales campaigns. No spam.</p>
     </div>
+    <form
+      class="sm:flex embeddable-buttondown-form justify-center mt-8"
+      action="https://buttondown.email/api/emails/embed-subscribe/krisbogdanov"
+      method="post"
+      target="popupwindow"
+      onSubmit="window.open('https://buttondown.email/krisbogdanov', 'popupwindow')"
+    >
+      <input
+        aria-label="Email address"
+        type="email"
+        name="email"
+        required
+        class="focus:outline-none focus:shadow-outline focus:border-purple-300 sm:max-w-lg w-full px-5 py-3 text-base leading-6 text-gray-900 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md appearance-none"
+        placeholder="Enter your email"
+        id="bd-email"
+      />
+      <input type="hidden" value="1" name="embed"></input>
+      <div class="sm:mt-0 sm:ml-3 sm:flex-shrink-0 mt-3 rounded-md shadow">
+        <input
+          class="hover:bg-purple-500 focus:outline-none focus:shadow-outline flex items-center justify-center w-full px-16 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-purple-600 border border-transparent rounded-md cursor-pointer"
+          type="submit"
+          value="Subscribe"
+        ></input>
+      </div>
+</form>
+    <p class="mt-3 text-sm text-center text-gray-700">
+      No spam. Unsubscribe at any time.
+    </p>
   </div>
 </div>
