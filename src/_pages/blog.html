@@ -6,25 +6,28 @@ order: 2
 ---
 
 <div class="container">
-  <div class="mb-12 text-center">
+  <div class="my-12 text-center">
     <h1 class="text-5xl font-bold">Blog</h1>
-    <p class="w-3/5 mx-auto text-lg text-gray-700">Writing about everything, but mostly about being a self-taught developer, making products and travel.</p>
+    <p class="w-3/5 mx-auto text-lg text-gray-700">
+      Writing about everything, but mostly about being a self-taught developer,
+      making products and travel.
+    </p>
   </div>
   <div class="lg:grid-cols-2 grid gap-12">
     {% for post in site.posts %} {% unless post.category contains "travel" %}
-      <a href="{{ post.url }}">
-        <div
-          class="h-84 flex flex-col justify-center w-full p-6 text-center text-white rounded-lg shadow-lg"
-          style="background: linear-gradient( rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url({{site.baseurl}}/images/{{ post.image }});
+    <a href="{{ post.url }}">
+      <div
+        class="h-84 flex flex-col justify-center w-full p-6 text-center text-white rounded-lg shadow-lg"
+        style="background: linear-gradient( rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url({{site.baseurl}}/images/{{ post.image }});
               background-repeat: no-repeat;
               background-size: cover;
               background-position: center;"
-        >
-          <h2 class="text-3xl">{{ post.title }}</h2>
-          <h5 class="lg:block hidden text-gray-300">{{ post.subtitle }}</h5>
-          <p class="text-gray-300">{{ post.date | date_to_long_string }}</p>
-        </div>
-      </a>
+      >
+        <h2 class="text-3xl">{{ post.title }}</h2>
+        <h5 class="lg:block hidden text-gray-300">{{ post.subtitle }}</h5>
+        <p class="text-gray-300">{{ post.date | date_to_long_string }}</p>
+      </div>
+    </a>
     {% endunless %} {% endfor %}
   </div>
 </div>
